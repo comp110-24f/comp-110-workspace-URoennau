@@ -17,7 +17,7 @@ def contains_char(secret_word: str, char_guess: str) -> bool:
         len(char_guess) == 1
     )  # I didn't know about this "assert" function which is a good thing to learn!
     idx: int = 0
-    while idx != len(secret_word) - 1:
+    while idx != len(secret_word):
         if secret_word[idx] == char_guess:
             return True
         idx += 1
@@ -48,16 +48,17 @@ def main(secret: str) -> None:
     turn: int = 0
     won: bool = False
     while (
-        turn != 7
+        turn < 6
     ) and not won:  # increments turn-count up to 6 and checks to see that the "False" value of won is still present in order to enter the loop
         turn += 1
         print(f"=== Turn === {turn}/6 ===")
+        current_guess: str = input_guess(len(secret))
         current_emoji_output = emojified(
-            input_guess(len(secret)), secret
+            current_guess, secret
         )  # creating a variable called "current_emoji_output" so that I dont have to copy-paste the code
         print(current_emoji_output)
-        if current_emoji_output == "\U0001F7E9" * len(
-            secret
+        if (
+            current_guess == secret
         ):  # checks to see if the user has guessed the correct word
             won = True
             print(f"You won in {turn}/6 turns!")

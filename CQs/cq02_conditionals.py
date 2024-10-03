@@ -6,17 +6,16 @@ __author__ = "730769565"
 def guess_a_number() -> None:
     """this is a cool function for guessing the number"""
     secret = 7
-    response = int(input("Guess a number:"))
-    print("Your guess was " + str(secret))
-    if response == secret:
+    response = input("Guess a number: ")
+    print("Your guess was " + response)
+    if int(response) == secret:
         print("You got it!")
-    elif response < secret:
+    elif int(response) < secret:
         print("Your guess was too low! The secret number is " + str(secret))
     else:
         print("Your guess was too high! The secret number is " + str(secret))
+    return None
 
-
-guess_a_number()
 
 if __name__ == "__main__":
     guess_a_number()
