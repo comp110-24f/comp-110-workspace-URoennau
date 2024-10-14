@@ -1,10 +1,12 @@
-"""XXXX"""
+"""this program implements some helpful functions to work with lists in python"""
 
 __author__ = "730769565"
 
 
 def all(my_list: list[int], num: int) -> bool:
     idx: int = 0
+    if len(my_list) == 0:
+        return False
     while idx < len(my_list):
         if my_list[idx] != num:
             return False
@@ -17,7 +19,7 @@ def max(my_list2: list[int]) -> int:
     if len(my_list2) == 0:
         raise ValueError("max() arg is an empty List")
     idx: int = 0
-    largest: int = 0
+    largest: int = -10000
     while idx < len(my_list2):
         if my_list2[idx] > largest:
             largest = my_list2[idx]
